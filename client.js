@@ -10,7 +10,6 @@ export default function connect(hostname, port, commands) {
     const client = new net.Socket();
 
     client.connect(PORT, HOST, async () => {
-      console.log('Connected to server');
 
       await processCommands();
 
@@ -18,14 +17,11 @@ export default function connect(hostname, port, commands) {
     });
 
     client.on('end', () => {
-      console.log('Disconnected from server');
-      // Resuelve la promesa con el resultado final
       resolve(finalResult);
     });
 
     client.on('error', (err) => {
       console.error('Error:', err.message);
-      // Rechaza la promesa en caso de error
       reject(err);
     });
 
@@ -40,6 +36,7 @@ export default function connect(hostname, port, commands) {
             finalResult.push(result);
           } catch (error) {
             console.error('Error processing command:', error.message);
+            finalResult = '';
           }
         }
       }
