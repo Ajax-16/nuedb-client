@@ -1,4 +1,4 @@
-import connect from './client.js';
+import connect from '../client.js';
 import readline from 'readline';
 
 const rl = readline.createInterface({
