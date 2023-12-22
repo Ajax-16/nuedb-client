@@ -19,8 +19,13 @@ async function main() {
     do {
         extCommand = await getUserInput();
         if (extCommand.toUpperCase() !== 'EXIT') {
-            const result = await connect('localhost', 3000, extCommand);
-            console.log(result);
+            try{
+                const result = await connect('localhost', 3000, extCommand);
+                console.log(result);
+            }catch(err){
+                console.log('Error connecting to JSDB server');
+                extCommand = 'EXIT';
+            }
         }
     } while (extCommand.toUpperCase() !== 'EXIT');
 
