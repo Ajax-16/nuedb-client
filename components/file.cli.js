@@ -12,7 +12,6 @@ export async function processFile(filePath) {
         const result = await connect('localhost', 3000, jsdbFile);
         console.log(chalk.blue.bold('\nResults:\n'))
         display(result);
-        process.exit(0);
     } catch (err) {
         console.error('Error reading or connecting:', err.message);
     }
