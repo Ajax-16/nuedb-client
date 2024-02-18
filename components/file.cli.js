@@ -10,7 +10,7 @@ export async function processFile(filePath) {
     try {
         const jsdbFile = await readFileAsync(filePath, 'utf-8');
         const result = await connect('localhost', 3000, jsdbFile);
-        console.log(chalk.blue.bold('\nResults:\n'))
+        console.log(chalk.blue.bold.underline('\n- Results:\n'))
         display(result);
     } catch (err) {
         console.error('Error reading or connecting:', err.message);

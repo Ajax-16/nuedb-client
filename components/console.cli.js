@@ -21,7 +21,7 @@ export async function processConsole(args) {
     }else {
         extCommand = args.toString();
         const firstResult = await connect('localhost', 3000, extCommand);
-        console.log(chalk.blue.bold('\nResults:\n'))
+        console.log(chalk.blue.bold.underline('\n- Results:\n'))
         display(firstResult);
     }
 
@@ -29,7 +29,7 @@ export async function processConsole(args) {
         extCommand = await getUserInput();
         if (extCommand.toUpperCase() !== 'EXIT') {
                 const result = await connect('localhost', 3000, extCommand);
-                console.log(chalk.blue.bold('\nResults:\n'))
+                console.log(chalk.blue.bold.underline('\n- Results:\n'))
                 display(result);
         }
     } while (extCommand.toUpperCase() !== 'EXIT');
