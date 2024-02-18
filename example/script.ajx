@@ -1,0 +1,52 @@
+INIT db;
+DROP TABLE users;
+CREATE TABLE users (id as PRIMARY_KEY,
+name,
+email,
+password);
+INSERT INTO users (
+    'Davivi16',
+    'dqvivi@gmail.com',
+    '123123'
+);
+INSERT INTO users (
+    'Gabuso',
+    'gabu@gmail.com',
+    '1232313123'
+);
+INSERT INTO users (
+    'Juanico',
+    'juanico@gmail.com',
+    '1235653123'
+);
+INSERT INTO users (
+    'Chel',
+    'chel@gmail.com',
+    '99934283'
+);
+INSERT INTO users (
+    'Javi',
+    'javilico@gmail.com',
+    '99989'
+);
+INSERT INTO users (
+    'Lucía',
+    'luciii232@gmail.com',
+    '098873'
+);
+INSERT INTO users (
+    'Manolo23',
+    'manolillo@gmail.com',
+    '0908939'
+);
+INSERT INTO users (
+    'Paco',
+    'paquitooo554@gmail.com',
+    '354fgr33fTTE'
+);
+INSERT INTO users (
+    'Kilombo',
+    'kololo@gmail.com',
+    '564654342'
+);
+FIND IN users;
