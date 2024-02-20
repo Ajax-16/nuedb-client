@@ -26,7 +26,7 @@ export function display(result) {
                 const tableName = element[0]; // Obtener el nombre de la tabla
                 const headers = element[1]; // Obtener los encabezados
     
-                cliTable.push([{ colSpan: headers.length, content: chalk.green.bold(tableName.toString().toUpperCase()) }]); // Añadir nombre de la tabla con colSpan
+                cliTable.push([{ colSpan: headers.length, content: tableName[0] !== 'EXCEPTION ENCOUNTER' ? chalk.green.bold(tableName.toString().toUpperCase()) : chalk.red.bold(tableName.toString().toUpperCase()) }]); // Añadir nombre de la tabla con colSpan
                 
                 cliTable.push(headers.map(header => chalk.bold(header)));
     

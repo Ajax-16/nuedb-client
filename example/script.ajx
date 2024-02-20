@@ -1,0 +1,1000 @@
+INIT tienda;
+DROP TABLE category;
+CREATE TABLE category (
+    id as PRIMARY_KEY,
+    name,
+    label,
+    manufacturer
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+INSERT INTO category (
+    'video-juegos',
+    'games',
+    'EA'
+);
+
+FIND IN category where label = 'games';
