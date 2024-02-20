@@ -6,10 +6,10 @@ import { display } from './display.js';
 
 const readFileAsync = util.promisify(fs.readFile); 
 
-export async function processFile(filePath) {
+export async function processFile(host, port, filePath) {
     try {
         const jsdbFile = await readFileAsync(filePath, 'utf-8');
-        const result = await connect('localhost', 3000, jsdbFile);
+        const result = await connect(host, port, jsdbFile);
         console.log(chalk.blue.bold.underline('\n- Results:\n'))
         display(result);
     } catch (err) {

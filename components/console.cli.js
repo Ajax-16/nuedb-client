@@ -3,7 +3,7 @@ import connect from 'ajaxdb-client';
 import { display } from './display.js';
 import chalk from "chalk";
 
-export async function processConsole(args) {
+export async function processConsole(host, port, args) {
     async function getUserInput() {
         const response = await inquirer.prompt([
             {
@@ -20,7 +20,7 @@ export async function processConsole(args) {
         extCommand = '';
     }else {
         extCommand = args.toString();
-        const firstResult = await connect('localhost', 3000, extCommand);
+        const firstResult = await connect(host, port, extCommand);
         console.log(chalk.blue.bold.underline('\n- Results:\n'))
         display(firstResult);
     }
@@ -28,7 +28,7 @@ export async function processConsole(args) {
     do {
         extCommand = await getUserInput();
         if (extCommand.toUpperCase() !== 'EXIT') {
-                const result = await connect('localhost', 3000, extCommand);
+                const result = await connect(host, port, extCommand);
                 console.log(chalk.blue.bold.underline('\n- Results:\n'))
                 display(result);
         }
