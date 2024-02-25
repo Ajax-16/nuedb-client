@@ -997,4 +997,4 @@ INSERT INTO category (
     'EA'
 );
 
-FIND IN category where label = 'games';
+FIND * IN category where label = 'games';

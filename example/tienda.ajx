@@ -11856,7 +11856,7 @@ INSERT INTO products (
 );
 
 
-FIND IN products;
+FIND * IN products;
 
 INIT tienda;
 DROP TABLE users;
@@ -11909,4 +11909,4 @@ INSERT INTO users (
     'kololo@gmail.com',
     '564654342'
 );
-FIND IN users;
+FIND * IN users;
