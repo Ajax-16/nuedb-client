@@ -4,7 +4,7 @@ import CliTable3 from "cli-table3";
 export function display(result) {
 
     for (const element of result) {
-
+        
         if (typeof element === 'string') {
             console.log(chalk.green.bold(element + "\n")); 
 
@@ -31,6 +31,7 @@ export function display(result) {
                 cliTable.push(headers.map(header => chalk.bold(header)));
     
                 for (let i = 2; i < element.length; i++) {
+                    element[i] = element[i].map(value => value === null ? chalk.yellow('null') : value);
                     cliTable.push(element[i]);
                 }
 
