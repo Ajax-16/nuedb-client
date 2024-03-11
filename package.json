@@ -1,6 +1,6 @@
 {
   "name": "ajaxdb-client",
-  "version": "1.0.2v2",
+  "version": "1.0.3",
   "description": "Non-Object based JS database manager client",
   "main": "index.js",
   "scripts": {
