@@ -4,6 +4,7 @@ import { display } from './display.js';
 import chalk from "chalk";
 
 export async function processConsole(host, port, args) {
+    console.log(chalk.blue.bold(`User Input Mode:\n`))
     async function getUserInput() {
         const response = await inquirer.prompt([
             {
@@ -16,24 +17,40 @@ export async function processConsole(host, port, args) {
     }
     let extCommand;
 
-    if(!args) {
+    if (!args) {
         extCommand = '';
-    }else {
-        extCommand = args.toString();
-        const firstResult = await connect(host, port, extCommand);
-        console.log(chalk.blue.bold.underline('\n- Results:\n'))
-        display(firstResult);
+    } else {
+        try {
+            extCommand = args.toString();
+            const firstResult = await connect(host, port, extCommand);
+            console.log(chalk.blue.bold.underline('\n- Results:\n'))
+            display(firstResult);
+        } catch (err) {
+            if(err.code === 'ECONNREFUSED') {
+                console.error(chalk.red("\nCouldn't connect to AjaxDB server. AJX Error Code: " + 100 + ".\nFor more information about error codes and possible solutions, please visit https://ajaxdb.org/docs/ajx/error-codes\n"))
+            }else {
+                console.error(err);
+            }
+        }
     }
 
     do {
         extCommand = await getUserInput();
         if (extCommand.toUpperCase() !== 'EXIT') {
+            try {
                 const result = await connect(host, port, extCommand);
                 console.log(chalk.blue.bold.underline('\n- Results:\n'))
                 display(result);
+            } catch (err) {
+                if(err.code === 'ECONNREFUSED') {
+                    console.error(chalk.red("\nCouldn't connect to AjaxDB server. AJX Error Code: " + 100 + ".\nFor more information about error codes and possible solutions, please visit https://ajaxdb.org/docs/ajx/error-codes\n"))
+                }else {
+                    console.error(err);
+                }
+            }
         }
     } while (extCommand.toUpperCase() !== 'EXIT');
-    
+
 
     console.log(chalk.blue.bold('\nBye! :)\n'));
 

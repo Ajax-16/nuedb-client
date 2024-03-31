@@ -2,6 +2,7 @@
 import { program } from 'commander';
 import { processFile } from './components/file.cli.js';
 import { processConsole } from './components/console.cli.js';
+import chalk from 'chalk';
 
 program.version('0.0.1');
 
@@ -23,6 +24,24 @@ const options = program.opts();
 
 port = options.port ? options.port : port;
 host = options.host ? options.host : host;
+
+console.log(chalk.blue.bold(`
+////////////////////////////////////////////////////////////////////////
+//                                                                    //
+//   ___     ___  ___  __   _____________        _____  _     _____   //
+//  / _ \\   |_  |/ _ \\ \\ \\ / /  _  \\ ___ \\      /  __ \\| |   |_   _|  //
+// / /_\\ \\    | / /_\\ \\ \\ V /| | | | |_/ /______| /  \\/| |     | |    //
+// |  _  |    | |  _  | /   \\| | | | ___ \\______| |    | |     | |    //
+// | | | |/\\__/ / | | |/ /^\\ \\ |/ /| |_/ /      | \\__/\\| |_____| |_   //
+// \\_| |_/\\____/\\_| |_/\\/   \\/___/ \\____/        \\____/\\_____/\\___/   //
+//                                                                    //
+////////////////////////////////////////////////////////////////////////
+                Copyright © 2024. All rights reserved.`));
+
+console.log(`
+# Welcome to AjaxDB-cli. Please enter the documentation here if you want to
+# know about AjaxDB command syntax and functionalities -> https://ajaxdb.org/docs
+`)
 
 if (options.file) {
   processFile(host, port, options.file)
