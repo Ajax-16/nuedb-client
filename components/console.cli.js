@@ -1,5 +1,5 @@
 import inquirer from 'inquirer';
-import connect from 'ajaxdb-client';
+import connect from 'nuedb-client';
 import { display } from './display.js';
 import chalk from "chalk";
 
@@ -27,7 +27,7 @@ export async function processConsole(host, port, args) {
             display(firstResult);
         } catch (err) {
             if(err.code === 'ECONNREFUSED') {
-                console.error(chalk.red("\nCouldn't connect to AjaxDB server. AJX Error Code: " + 100 + ".\nFor more information about error codes and possible solutions, please visit https://ajaxdb.org/docs/ajx/error-codes\n"))
+                console.error(chalk.red("\nCouldn't connect to NueDB server. NUE Error Code: " + 100 + ".\nFor more information about error codes and possible solutions, please visit https://nuedb.org/docs/nue/error-codes\n"))
             }else {
                 console.error(err);
             }
@@ -43,7 +43,7 @@ export async function processConsole(host, port, args) {
                 display(result);
             } catch (err) {
                 if(err.code === 'ECONNREFUSED') {
-                    console.error(chalk.red("\nCouldn't connect to AjaxDB server. AJX Error Code: " + 100 + ".\nFor more information about error codes and possible solutions, please visit https://ajaxdb.org/docs/ajx/error-codes\n"))
+                    console.error(chalk.red("\nCouldn't connect to NueDB server. NUE Error Code: " + 100 + ".\nFor more information about error codes and possible solutions, please visit https://nuedb.org/docs/nue/error-codes\n"))
                 }else {
                     console.error(err);
                 }
