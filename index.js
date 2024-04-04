@@ -36,7 +36,7 @@ console.log(chalk.blue.bold(`
 //  \\_| \\_/\\__,_|\\___|___/ \\____/        \\____/\\_____/\\___/   //
 //                                                            //
 ////////////////////////////////////////////////////////////////
-                Copyright © 2024. All rights reserved.`));
+            Copyright © 2024. All rights reserved.`));
 
 console.log(`
 # Welcome to NueDB-cli. Please enter the documentation here if you want to

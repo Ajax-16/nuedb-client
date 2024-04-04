@@ -1,6 +1,6 @@
 {
   "name": "nuedb-cli",
-  "version": "0.0.1v2",
+  "version": "0.1.0",
   "description": "Nodejs cli app to make connection by terminal with an NueDB server or input .nue files.",
   "main": "index.js",
   "directories": {
