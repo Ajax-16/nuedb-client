@@ -43,7 +43,7 @@ export default function connect(hostname, port, commands) {
       return new Promise((resolve, reject) => {
         let partialResult = ''; // Variable para almacenar el fragmento de la respuesta
     
-        client.write('AJX\r\n\r\n'+command);
+        client.write('NUE\r\n\r\n'+command);
         client.on('data', (data) => {
           const result = data.toString();
           
