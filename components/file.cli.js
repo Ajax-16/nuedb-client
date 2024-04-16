@@ -1,4 +1,4 @@
-import connect from 'nuedb-client';
+import {connect} from 'nuedb-client';
 import fs from 'fs';
 import util from 'util';
 import chalk from 'chalk';

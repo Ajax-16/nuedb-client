@@ -1,5 +1,5 @@
 import inquirer from 'inquirer';
-import connect from 'nuedb-client';
+import {connect} from 'nuedb-client';
 import { display } from './display.js';
 import chalk from "chalk";
 
