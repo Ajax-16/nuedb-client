@@ -1,6 +1,52 @@
 import net from 'net';
 
-export default function connect(hostname, port, commands) {
+export function serverHandShake(hostname, port) {
+  return new Promise((resolve, reject) => {
+    const PORT = port;
+    const HOST = hostname;
+
+    const client = new net.Socket();
+
+    let response = false;
+
+    client.connect(PORT, HOST, async () => {
+      client.write('NUE\r\n\r\nClient Hello');
+      client.on('data', (data) => {
+        if (data.toString() === 'Server Hello') {
+          response = true
+        }
+      })
+      client.end();
+    })
+
+    client.on('end', () => {
+      if (response) {
+        resolve(
+          {
+            success: true,
+            message: 'Server hand shake succesfully done!'
+          }
+        )
+      } else {
+        reject(
+          {
+            success: false,
+            message: 'Server hand shake failed!'
+          }
+        )
+      }
+
+    })
+
+    client.on('error', (err) => {
+      console.error('Error:', err.message);
+      reject(err);
+    });
+
+  })
+}
+
+export function connect(hostname, port, commands) {
   return new Promise((resolve, reject) => {
     const PORT = port;
     const HOST = hostname;
@@ -42,11 +88,11 @@ export default function connect(hostname, port, commands) {
     function sendCommand(command) {
       return new Promise((resolve, reject) => {
         let partialResult = ''; // Variable para almacenar el fragmento de la respuesta
-    
-        client.write('NUE\r\n\r\n'+command);
+
+        client.write('NUE\r\n\r\n' + command);
         client.on('data', (data) => {
           const result = data.toString();
-          
+
           // Comprueba si se ha recibido la marca de fin de respuesta
           if (result.includes('END_OF_RESPONSE')) {
             // Concatena el todos los chunks de respuesta sin la marca de fin de respuesta
@@ -64,6 +110,6 @@ export default function connect(hostname, port, commands) {
         });
       });
     }
-        
+
   });
 }
