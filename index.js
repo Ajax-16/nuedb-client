@@ -6,7 +6,7 @@ import chalk from 'chalk';
 import { handShake } from './components/hand.shake.js';
 
 async function main() {
-  program.version('0.1.2');
+  program.version('0.1.3');
 
   let defaultPort = 3000;
   let defaultHost = 'localhost';
