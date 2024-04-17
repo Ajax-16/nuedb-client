@@ -15,8 +15,8 @@ export function serverHandShake(hostname, port) {
         if (data.toString() === 'Server Hello') {
           response = true
         }
+        client.end();
       })
-      client.end();
     })
 
     client.on('end', () => {
@@ -28,7 +28,7 @@ export function serverHandShake(hostname, port) {
           }
         )
       } else {
-        reject(
+        resolve(
           {
             success: false,
             message: 'Server hand shake failed!'
