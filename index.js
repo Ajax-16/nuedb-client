@@ -85,8 +85,7 @@ export function connect(hostname, port, commands) {
           responses.push('');
         }
       }
-      const save = await sendCommand("Save = true", undefined);
-      responses.push(save)
+      await sendCommand("Save = true", undefined);
     }
 
     function sendCommand(headers, command) {
