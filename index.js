@@ -1,4 +1,5 @@
 import net from 'net';
+import { parseResponseHeaders } from './response.js';
 
 export function serverHandShake(hostname, port) {
   return new Promise((resolve, reject) => {
@@ -67,6 +68,7 @@ export function connect(hostname, port, commands) {
     client.on('error', (err) => {
       console.error('Error:', err.message);
       reject(err);
+      client.end();
     });
 
     async function processCommands() {
@@ -74,7 +76,7 @@ export function connect(hostname, port, commands) {
 
       for (const command of commandsQueue) {
         try {
-          const result = await sendCommand(command);
+          const result = await sendCommand(undefined, command);
           // Agregar la respuesta al array de respuestas
           responses.push(result);
         } catch (error) {
@@ -83,28 +85,49 @@ export function connect(hostname, port, commands) {
           responses.push('');
         }
       }
+      const save = await sendCommand("Save = true", undefined);
+      responses.push(save)
     }
 
-    function sendCommand(command) {
+    function sendCommand(headers, command) {
       return new Promise((resolve, reject) => {
         let partialResult = ''; // Variable para almacenar el fragmento de la respuesta
-
-        client.write('NUE\r\n\r\n' + command);
+        if(headers && command) {
+          client.write("NUE\r\n" + headers + "\r\n\r\n" + command)
+        }else if(headers){
+          client.write('NUE\r\n' + headers +  "\r\n\r\n");
+        }else if (command) {
+          client.write('NUE\r\n\r\n' + command);
+        }
+        
         client.on('data', (data) => {
           const result = data.toString();
 
           // Comprueba si se ha recibido la marca de fin de respuesta
           if (result.includes('END_OF_RESPONSE')) {
-            // Concatena el todos los chunks de respuesta sin la marca de fin de respuesta
-            partialResult += result.replace('END_OF_RESPONSE', '');
 
-            const parsedResult = JSON.parse(partialResult);
-            // Resuelve la promesa con la respuesta completa parseada a JSON
-            resolve(parsedResult);
-            // Limpia partialResult para la próxima respuesta ya que al mandarse varios paquetes, este evento se va a reproducir varias veces
-            partialResult = '';
+            try {
+              // Concatena todos los chunks de respuesta sin la marca de fin de respuesta
+              partialResult += result.replace('END_OF_RESPONSE', '');
+              let [headers, body] = partialResult.split("\r\n\r\n");
+              [,...headers] = headers.split("\r\n");
+
+              headers = parseResponseHeaders(headers);
+              if(body) {
+                body = JSON.parse(body);
+              }
+              // Resuelve la promesa con la respuesta completa
+              
+              resolve({headers, body})
+              // Limpia partialResult para la próxima respuesta ya que al mandarse varios paquetes, este evento se va a reproducir varias veces
+              partialResult = '';
+            } catch (err) {
+              console.error(err)
+              client.end();
+            }
+
           } else {
-            // Concatena el chunk de respuesta al parcialResult
+            // Concatena el chunk de respuesta al partialResult
             partialResult += result;
           }
         });
