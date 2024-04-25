@@ -11858,7 +11858,6 @@ INSERT INTO products (
 
 FIND * IN products;
 
-INIT tienda;
 DROP TABLE users;
 CREATE TABLE users (id as PRIMARY_KEY,
 name,
