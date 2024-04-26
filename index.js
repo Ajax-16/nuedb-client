@@ -60,11 +60,6 @@ export function connect(hostname, port, commands) {
       client.end();
     });
 
-    client.on('end', () => {
-      // Se ha completado la transmisión de datos, resolver la promesa con todas las respuestas
-      resolve(responses);
-    });
-
     client.on('error', (err) => {
       console.error('Error:', err.message);
       reject(err);
@@ -130,6 +125,11 @@ export function connect(hostname, port, commands) {
             partialResult += result;
           }
         });
+
+        client.on('end', ()=>{
+
+        })
+
       });
     }
 

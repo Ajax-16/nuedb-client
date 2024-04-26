@@ -1,6 +1,6 @@
 {
   "name": "nuedb-client",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Non-Object based JS database manager client",
   "main": "index.js",
   "scripts": {
