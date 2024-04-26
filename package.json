@@ -1,6 +1,6 @@
 {
   "name": "nuedb-client",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "NueDB Client Interface",
   "main": "index.js",
   "scripts": {
@@ -13,5 +13,8 @@
   "keywords": [],
   "author": "David Bernárdez Luque",
   "license": "MIT",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
 }

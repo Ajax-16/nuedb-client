@@ -1,5 +1,5 @@
 import net from 'net';
-import { parseResponseHeaders } from './response.js';
+import { parseResponse, parseResponseHeaders } from './io/response.js';
 
 export function serverHandShake(hostname, port) {
   return new Promise((resolve, reject) => {
@@ -8,20 +8,22 @@ export function serverHandShake(hostname, port) {
 
     const client = new net.Socket();
 
-    let response = false;
+    let success = false;
 
     client.connect(PORT, HOST, async () => {
-      client.write('NUE\r\n\r\nClient Hello');
+      client.write('NUE\r\nHandShake = true\r\n\r\n');
       client.on('data', (data) => {
-        if (data.toString() === 'Server Hello') {
-          response = true
-        }
+        const result = data.toString().replace('END_OF_RESPONSE', '');
+          const resHeaders = parseResponse(result).headers;
+          if(resHeaders["Status"] === 'OK') {
+            success = true;
+          }
         client.end();
       })
     })
 
     client.on('end', () => {
-      if (response) {
+      if (success) {
         resolve(
           {
             success: true,
@@ -80,6 +82,7 @@ export function connect(hostname, port, commands) {
           responses.push('');
         }
       }
+      resolve(responses)
       await sendCommand("Save = true", undefined);
     }
 
@@ -96,23 +99,16 @@ export function connect(hostname, port, commands) {
         
         client.on('data', (data) => {
           const result = data.toString();
-
           // Comprueba si se ha recibido la marca de fin de respuesta
-          if (result.includes('END_OF_RESPONSE')) {
-
+          if (result.endsWith('END_OF_RESPONSE')) {
+            
             try {
               // Concatena todos los chunks de respuesta sin la marca de fin de respuesta
               partialResult += result.replace('END_OF_RESPONSE', '');
-              let [headers, body] = partialResult.split("\r\n\r\n");
-              [,...headers] = headers.split("\r\n");
-
-              headers = parseResponseHeaders(headers);
-              if(body) {
-                body = JSON.parse(body);
-              }
+              const finalResult = parseResponse(partialResult);
               // Resuelve la promesa con la respuesta completa
               
-              resolve({headers, body})
+              resolve(finalResult)
               // Limpia partialResult para la próxima respuesta ya que al mandarse varios paquetes, este evento se va a reproducir varias veces
               partialResult = '';
             } catch (err) {
