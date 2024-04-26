@@ -1,5 +1,6 @@
 import net from 'net';
-import { parseResponse, parseResponseHeaders } from './io/response.js';
+import { parseResponse } from './io/response.js';
+import { createCommandsChunks } from './io/reqChunk.js';
 
 export function serverHandShake(hostname, port) {
   return new Promise((resolve, reject) => {
@@ -56,6 +57,7 @@ export function connect(hostname, port, commands) {
     let responses = []; // Array para almacenar todas las respuestas
 
     const client = new net.Socket();
+    client.setMaxListeners(Infinity)
 
     client.connect(PORT, HOST, async () => {
       await processCommands();
@@ -69,11 +71,14 @@ export function connect(hostname, port, commands) {
     });
 
     async function processCommands() {
-      const commandsQueue = commands.split(';').map(command => command.trim()).filter(command => command); // Filtrar comandos vacíos
+      const commandsQueue = createCommandsChunks(commands);
 
       for (const command of commandsQueue) {
         try {
+          // Eliminar el listener 'data' antes de enviar el comando
+          client.removeAllListeners('data');
           const result = await sendCommand(undefined, command);
+    
           // Agregar la respuesta al array de respuestas
           responses.push(result);
         } catch (error) {
@@ -82,50 +87,55 @@ export function connect(hostname, port, commands) {
           responses.push('');
         }
       }
-      resolve(responses)
+    
+      resolve(responses);
       await sendCommand("Save = true", undefined);
     }
 
     function sendCommand(headers, command) {
       return new Promise((resolve, reject) => {
-        let partialResult = ''; // Variable para almacenar el fragmento de la respuesta
-        if(headers && command) {
-          client.write("NUE\r\n" + headers + "\r\n\r\n" + command)
-        }else if(headers){
-          client.write('NUE\r\n' + headers +  "\r\n\r\n");
-        }else if (command) {
-          client.write('NUE\r\n\r\n' + command);
-        }
-        
-        client.on('data', (data) => {
+        let partialResult = '';
+        const onData = (data) => {
           const result = data.toString();
-          // Comprueba si se ha recibido la marca de fin de respuesta
+    
           if (result.endsWith('END_OF_RESPONSE')) {
-            
             try {
-              // Concatena todos los chunks de respuesta sin la marca de fin de respuesta
               partialResult += result.replace('END_OF_RESPONSE', '');
               const finalResult = parseResponse(partialResult);
-              // Resuelve la promesa con la respuesta completa
-              
-              resolve(finalResult)
-              // Limpia partialResult para la próxima respuesta ya que al mandarse varios paquetes, este evento se va a reproducir varias veces
+              resolve(finalResult);
               partialResult = '';
             } catch (err) {
-              console.error(err)
+              console.error(err);
               client.end();
             }
-
           } else {
-            // Concatena el chunk de respuesta al partialResult
             partialResult += result;
           }
+        };
+    
+        // Añadir el listener 'data'
+        client.on('data', onData);
+    
+        // Escribir el comando al cliente
+        if (headers && command) {
+          client.write("NUE\r\n" + headers + "\r\n\r\n" + command);
+        } else if (headers) {
+          client.write('NUE\r\n' + headers + "\r\n\r\n");
+        } else if (command) {
+          client.write('NUE\r\n\r\n' + command);
+        }
+    
+        // Manejar errores
+        client.on('error', (err) => {
+          console.error('Error:', err.message);
+          reject(err);
+          client.end();
         });
-
-        client.on('end', ()=>{
-
-        })
-
+    
+        // Limpieza de listeners
+        client.once('end', () => {
+          client.removeListener('data', onData); // Eliminar el listener 'data' una vez que la conexión termine
+        });
       });
     }
 

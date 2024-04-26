@@ -1,16 +1,22 @@
-import {config} from "dotenv"
+import { config } from "dotenv";
 
-config({path: './.env'})
-const CHUNK_SIZE = process.env.CHUNK_SIZE;
+config({ path: '../.env' });
+const CHUNK_SIZE = process.env.CHUNK_SIZE || 4096; // Asegúrate de convertir el valor a entero
 
-const createChunk = (data) => {
+export const createCommandsChunks = (data) => {
 
-    if(data.length <= CHUNK_SIZE){
-        console.log(data)
+    const splitCommands = data.split(';').map(command => command.trim()).filter(command => command !== '');
+    let commandChunks = [];
+
+    if (splitCommands.length <= CHUNK_SIZE) {
+        commandChunks.push(splitCommands.join(';'));
+        
+    } else {
+        for (let i = 0; i < splitCommands.length; i += CHUNK_SIZE) {
+            const chunk = splitCommands.slice(i, i + CHUNK_SIZE).join(';'); // Unir los chunks antes de agregarlos
+            commandChunks.push(chunk);
+        }
     }
 
+    return commandChunks
 }
-
-const command = "init tienda; INSERT INTO products (pokemon, 20); INSERT INTO products (pokemon, 20); FIND * IN products"
-
-createChunk(command)
