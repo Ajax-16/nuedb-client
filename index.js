@@ -48,7 +48,7 @@ export function serverHandShake(hostname, port, username, password) {
     })
 
     client.on('error', (err) => {
-      console.error('Error:', err.message);
+      console.error(err.message);
       reject(err);
     });
 
@@ -71,7 +71,7 @@ export function connect(hostname, port, commands) {
     });
 
     client.on('error', (err) => {
-      console.error('Error:', err.message);
+      console.error(err.message);
       reject(err);
       client.end();
     });
@@ -97,7 +97,7 @@ export function connect(hostname, port, commands) {
     
       resolve(responses);
       
-      await sendCommand(client, "Save = true", undefined);
+      await sendCommand(client, `Authorization = Classic ${user.username}:${user.password}\r\nSave = true`, undefined);
     }
 
   });
@@ -138,7 +138,7 @@ function sendCommand(client, headers, command) {
 
     // Manejar errores
     client.on('error', (err) => {
-      console.error('Error:', err.message);
+      console.error(err.message);
       reject(err);
       client.end();
     });
